@@ -1,0 +1,35 @@
+<!--miniprogram/pages/home_center/common_panel/index.js.wxml-->
+<wxs src="./index.wxs" module="utils" />
+<navbar device_name="智能开关" style="background-color: #27c3d9;"/>
+<view class="top_col">
+  <view class="top_block">
+    <image class="top_image" src="../../../image/index.png" > </image>
+  </view>
+</view>
+<view class="scroll-view">
+  <block wx:if="{{isRwDpListShow}}">
+    <block wx:for="{{rwDpList}}" wx:key="{{item.code}}" wx:for-item="item">
+      <block wx:if="{{item.type === 'Boolean'}}">
+        <Boolean model:isChecked="{{item.value}}" dpCode="{{item.code}}" dpName="{{item.name}}" bind:sendDp="sendDp" />
+      </block>
+    </block>
+  </block>
+</view>
+
+<button class='btn btn1'>
+    <image class='btnImg' src='../../../image/djs.png'></image>
+    <view>倒计时</view>
+ </button>
+
+  <button class='btn btn2'>
+    <image class='btnImg' src='../../../image/ds.png'></image>
+    <view>定时</view>
+ </button>
+
+ <button class='btn btn3'>
+    <image class='btnImg' src='../../../image/dl.png'></image>
+    <view>用电量</view>
+ </button>
+
+
+
